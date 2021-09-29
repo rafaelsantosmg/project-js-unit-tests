@@ -81,7 +81,7 @@ Você implementará várias funções para atender aos requisitos propostos e/ou
 ### Data de entrega
 
 - Projeto individual;
-- Será 1 dia de projeto;
+- Será `1` dia de projeto;
 - Data de entrega para avaliação final do projeto: `06/10/2021 - 14:00h`
 
 ---
@@ -91,7 +91,7 @@ Você implementará várias funções para atender aos requisitos propostos e/ou
 ### Antes de começar a desenvolver:
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-016-a-project-js-unit-tests.git`.
+  * `git clone git@github.com:tryber/sd-016-a-project-js-unit-tests.git`
   * Entre na pasta do repositório que você acabou de clonar:
     * `cd sd-016-a-project-js-unit-tests`
 
@@ -107,11 +107,12 @@ Você implementará várias funções para atender aos requisitos propostos e/ou
     * Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
     * Exemplo: `git checkout -b joaozinho-js-unit-tests`
 
-4. Faça as alterações em, por exemplo, alguma das funções que precisam de implementação. Por exemplo, a `average.js` em `src/`:
+4. Faça uma alteração em, por exemplo, alguma das funções que precisam de implementação. Por exemplo, a `average.js` em `src/`:
 
 ```javascript
 const average = () => {
   // add your implementation here
+  
 }
 
 module.exports = average
@@ -123,7 +124,7 @@ module.exports = average
   * Adicione o arquivo alterado ao _stage_ do Git
       * Exemplo:
         * `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-        * `git status` (deve aparecer listado o arquivo _src/last.js_ em verde)
+        * `git status` (deve aparecer listado o arquivo _src/average.js_ em verde)
   * Faça o `commit` inicial
       * Exemplo:
         * `git commit -m 'iniciando o projeto. VAMOS COM TUDO :rocket:'` (fazendo o primeiro commit)
