@@ -44,30 +44,38 @@ const createMenu = require('../src/restaurant');
 
 */
 
+const meuRestaurante = {
+  food: {coxinha: 3.90, sanduiche: 9.90},
+  drinks: {agua: 3.90, cerveja: 6.90},
+};
+
 describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
-    fail('Teste vazio!');
     // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui a
     // chave fetchMenu, a qual tem como valor uma função.
     // ```
-    // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
+    // const objetoRetornado1 = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
+    expect(typeof createMenu().fetchMenu).toBe('function');
     // ```
     // TESTE 2: Verifique se 'objetoRetornado.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`, 
     // considerando que a função createMenu() foi chamada com o objeto: `{ food: {}, drink: {} }`.
     // ```
-    // const objetoRetornado = createMenu({ food: {}, drink: {} });
+    let objetoRetornado = createMenu({ food: {}, drink: {} });
+    expect(Object.keys(objetoRetornado.fetchMenu())).toEqual(['food', 'drink']);
     // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
     // ```
     // TESTE 3: Verifique se o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
     // ```
-    // const objetoRetornado = createMenu(objetoQualquer);
+    objetoRetornado = createMenu(meuRestaurante);
+    expect(objetoRetornado.fetchMenu()).toEqual(meuRestaurante);
     // objetoRetornado.fetchMenu() // Retorno: objetoQualquer
     // ```
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 4: Verifique se 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
     // ```
-    // const objetoRetornado = createMenu(objetoQualquer);
+    objetoRetornado = createMenu(meuRestaurante);
+    expect(objetoRetornado.consumption).toEqual([]);
     // objetoRetornado.consumption // Retorno: []
     // ```
     // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
