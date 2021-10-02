@@ -95,33 +95,25 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // TESTE 6: Verifique se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.
     // ```
     objetoRetornado2.order('agua')
-    objetoRetornado2.order('sopa')
-    objetoRetornado2.order('sashimi')
+    objetoRetornado2.order('cerveja')
+    objetoRetornado2.order('sanduiche')
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
     // ```
-    expect(objetoRetornado2.consumption).toEqual(['coxinha', 'agua', 'sopa', 'sashimi']);
+    expect(objetoRetornado2.consumption).toEqual(['coxinha', 'agua', 'cerveja', 'sanduiche']);
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique se a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
     // ```
     objetoRetornado2.order('coxinha');
     // ```
-    expect(objetoRetornado2.consumption).toEqual(['coxinha', 'agua', 'sopa', 'sashimi', 'coxinha'])
+    expect(objetoRetornado2.consumption).toEqual(['coxinha', 'agua', 'cerveja', 'sanduiche', 'coxinha'])
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique se, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
     // ```
-    // const { createMenu, restaurant, orderPay } = require('../src/restaurant');
-    // console.log(restaurant)
-    let objetoRetornado3 = restaurant
-    objetoRetornado3.order('coxinha');
-    objetoRetornado3.order('sanduiche');
-    objetoRetornado3.order('agua');
-    objetoRetornado3.order('cerveja');
-    // console.log(result);
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
-    expect(orderPay(objetoRetornado3.consumption)).toBe(36.3)
+    expect(orderPay(objetoRetornado2.consumption)).toBe(28.5)
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
