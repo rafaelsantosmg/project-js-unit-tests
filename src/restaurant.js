@@ -128,6 +128,7 @@ function orderPay(object) {
     pay += orderFood(orderConsumption);
     pay += orderDrink(orderConsumption);
   }
+  pay += (pay / 100) * 10;
   return parseFloat(pay.toFixed(2));
 }
 
