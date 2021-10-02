@@ -78,14 +78,63 @@
 // PASSO 4: adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função
 // que percorre por todos os itens de `objetoRetornado.consumption`, soma o preço deles e retorna o valor somado acrescido de 10%.
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
-
-const createMenu = (object) => ({ fetchMenu: () => object, consumption: [] });
+const createMenu = (object) => ({
+  fetchMenu: () => object, 
+  consumption: [],
+});
 
 const meuRestaurante = createMenu({
   food: { coxinha: 3.90, sanduiche: 9.90 },
   drinks: { agua: 3.90, cerveja: 6.90 },
 });
 
-console.log(createMenu(meuRestaurante).consumption = []);
+function orderFromMenu(request, object) {
+  object.consumption.push(request);
+  return object;
+}
 
-module.exports = createMenu;
+const restaurant = {
+  menu: meuRestaurante.fetchMenu(),
+  consumption: [],
+  order: (string) => orderFromMenu(string, restaurant),
+};
+
+function orderFood(food) {
+  let pay = 0;
+  for (let index = 0; index < Object.entries(restaurant.menu.food).length; index += 1) {
+    if (Object.entries(restaurant.menu.food)[index][0] === food) {
+      pay += Object.entries(restaurant.menu.food)[index][1];
+    }
+  }
+  // const orderRestaurant = Object.entries(restaurant.menu);
+  return pay;
+}
+
+function orderDrink(drink) {
+  let pay = 0;
+  for (let index = 0; index < Object.entries(restaurant.menu.drinks).length; index += 1) {
+    if (Object.entries(restaurant.menu.drinks)[index][0] === drink) {
+      pay += Object.entries(restaurant.menu.drinks)[index][1];
+    }
+  }
+  // const orderRestaurant = Object.entries(restaurant.menu);
+  return pay;
+}
+
+function orderPay(object) {
+  let pay = 0;
+  for (let index = 0; index < Object.entries(object).length; index += 1) {
+    let orderConsumption = object[index];
+    pay += orderFood(orderConsumption);
+    pay += orderDrink(orderConsumption);
+  }
+  return parseFloat(pay.toFixed(2));
+}
+
+// restaurant.order('coxinha');
+// restaurant.order('sanduiche');
+// restaurant.order('agua');
+// restaurant.order('cerveja');
+// console.log(orderPay(restaurant.consumption));
+
+module.exports = { createMenu, restaurant, orderPay };
