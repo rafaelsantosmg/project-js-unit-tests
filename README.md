@@ -1,7 +1,7 @@
 
 # Project js-unit-tests
 
-Projeto realizado para desenvolver as HTML, CSS e JavaScript.
+Projeto realizado para desenvolver Tests Unitários.
 
 ## Habilidades Desenvolvidas
 
